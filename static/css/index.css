@@ -65,10 +65,28 @@ button {
     transition: 0.1s;
 }
 
+
 button:hover {
     font-size: 22px;
     font-weight: bold;
 }
+
+.btn-sm {
+    width: 70px;
+    height: 40px;
+    font-size: 13px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: .1s;
+}
+
+.btn-sm:hover {
+    font-size: 13px;
+    font-weight: bold;
+}
+
 
 .positive-btn {
     background-color: deepskyblue;
@@ -77,12 +95,15 @@ button:hover {
     background-color: dodgerblue;
 }
 
+
+
 .negative-btn {
     background-color: orangered;
 }
 .negative-btn:hover {
     background-color: red;
 }
+
 
 
 .main-contents {

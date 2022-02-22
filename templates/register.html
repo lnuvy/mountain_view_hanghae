@@ -5,12 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>마운틴뷰 로그인</title>
+    <title>마운틴뷰 회원가입</title>
     <!--    CSS -->
     <link rel="stylesheet" href="/static/css/index.css">
     <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/register.css">
     <!--    Jquery -->
     <script src="/static/js/jquery-3.6.0.min.js"></script>
+
+<!--    script -->
+    <script src="/static/js/register.js"></script>
 </head>
 <body>
 
@@ -32,15 +36,33 @@
         <div class="login-card flex-column">
             <h1>Register</h1>
             <br>
-            <form class="login-form">
-                <div class="input-box">
-                    <input id="username" type="text" name="username" placeholder="아이디">
-                    <label for="username">아이디</label>
+            <div class="login-form">
+                <div class="flex-row">
+                <div class="input-box" style="width: 80%">
+                    <input id="userId" type="text" name="userId" placeholder="아이디">
+                    <label for="userId">아이디</label>
                 </div>
-                <button>중복 확인하기</button>
+                <button class="btn-sm negative-btn" onclick="checkId()">중복 확인</button>
+                </div>
+                <div class="register-text flex-row" id="checkDuplicate">
+                    <span>아이디 중복확인 완료</span>
+                </div>
+
                 <div class="input-box">
-                    <input id="password" type="password" name="password" placeholder="비밀번호">
-                    <label for="password">비밀번호</label>
+                    <input id="userPassword" type="password" name="userPassword" placeholder="비밀번호">
+                    <label for="userPassword">비밀번호</label>
+                </div>
+                <div class="input-box">
+                    <input id="checkPassword" type="password" name="checkPassword" placeholder="비밀번호 확인">
+                    <label for="checkPassword">비밀번호 확인</label>
+                </div>
+                <div class="register-text flex-row" id="checkSamePassword">
+                    <span id="correctPassword">비밀번호가 일치합니다.</span>
+                    <span id="incorrectPassword">비밀번호가 일치하지 않습니다.</span>
+                </div>
+                <div class="input-box">
+                    <input id="userNickname" type="text" name="userNickname" placeholder="닉네임">
+                    <label for="userNickname">닉네임</label>
                 </div>
                 <div class="login-etc" style="justify-content: center">
                     <a href="register"><h4>이미 회원이신가요?</h4></a>
@@ -48,7 +70,7 @@
                 <div class="flex-row">
                     <button class="positive-btn">회원가입</button>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
