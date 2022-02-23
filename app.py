@@ -11,7 +11,7 @@ db = client.dbsparta
 def test():
     return render_template('testLogin.html')
 
-# 페이지 라우팅 #
+# ---------- 페이지 라우팅 ---------- #
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -32,15 +32,10 @@ def register():
 def mountainInfo():
     return render_template('mountainInfo.html')
 
-# # Ajax 요청 #
-# @app.route('/ajax', methods=["GET"])
-# def dbList():
-#     mountainList = list(db.test_mountain.find({}, {'_id': False}))
-#     print(mountainList)
-#     return jsonify({'mountains': mountainList})
 
-
-@app.route('/registerAction', methods=["POST"])
+# ---------- Ajax 요청 ---------- #
+# 아이디 중복체크
+@app.route('/register/checkDup', methods=["POST"])
 def checkDup():
     id_receive = request.form['id_give']
     userList = list(db.users.find({}, {'_id': False}))
@@ -51,10 +46,22 @@ def checkDup():
     print("없음")
     return jsonify({'msg': '사용 가능한 아이디 입니다.'})
 
+# 회원가입
 @app.route('/register/insertDB', methods=["POST"])
-def register():
-    return jsonify({'msg': '이제 완성해야함~'})
+def registerUser():
+    id_receive = request.form['id_give']
+    password_receive = request.form['password_give']
+    age_receive = request.form['age_give']
+    nickname_receive = request.form['nickname_give']
 
+    doc = {
+        "id": id_receive,
+        "password": password_receive,
+        "age": int(age_receive),
+        "nickname": nickname_receive
+    }
+    db.users.insert_one(doc)
+    return jsonify({'msg': '회원가입 완료'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
