@@ -51,13 +51,16 @@ def checkDup():
 def registerUser():
     id_receive = request.form['id_give']
     password_receive = request.form['password_give']
-    age_receive = request.form['age_give']
+    birth_receive = request.form['birth_give']
     nickname_receive = request.form['nickname_give']
+
+    if(id_receive == "" or password_receive == "" or birth_receive == "" or nickname_receive == ""):
+        return jsonify({'msg': '정상적이지 않은 접근입니다.'})
 
     doc = {
         "id": id_receive,
         "password": password_receive,
-        "age": int(age_receive),
+        "birth": birth_receive,
         "nickname": nickname_receive
     }
     db.users.insert_one(doc)

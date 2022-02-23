@@ -1,3 +1,7 @@
+// 프론트에서 유효성 체크 해주기
+var id_check = false;
+var password_check = false;
+
 // 아이디 유효성 검사
 function checkValid(check) {
     var str = check;
@@ -74,8 +78,10 @@ function checkId() {
                 // 아이디 중복확인 후 비밀번호로 포커스 이동
                 $('#userPassword').focus()
             }
+
         }
     });
+    id_check = true;
 }
 
 function checkPassword() {
@@ -105,6 +111,7 @@ function checkPassword() {
 
         // 나이로 포커스 옮김
         $('#userAge').focus()
+        password_check = true;
     } else {
         // 비밀번호와 비밀번호확인이 일치하지않을때, 알럿 띄운 후 비밀번호확인 값을 비우고 다시 포커스
         alert("일치하지 않습니다!")
@@ -117,8 +124,20 @@ function checkPassword() {
 function register() {
     const userId = $('#userId').val()
     const userPassword = $('#userPassword').val()  // 비밀번호 해쉬 암호화 필요
-    const userAge = $('#userAge').val()
+    const userBirth = $('#userBirth').val()
     const userNickname = $('#userNickname').val()
+
+    // 아이디 중복확인이 되지않았을때
+    if(!id_check) {
+        alert("아이디 중복확인을 해주세요.")
+        return;
+    }
+
+    // 비밀번호 확인이 안됐을때
+    if(!password_check) {
+        alert("비밀번호 확인을 해주세요.")
+        return;
+    }
 
     // 닉네임에 값을 넣지 않았을때
     if(userNickname === "") {
@@ -127,16 +146,16 @@ function register() {
         return;
     }
     // 나이의 값이 비어있을때
-    if (userAge === "") {
+    if (userBirth === "") {
         alert("나이를 입력하세요!")
-        $('#userAge').focus();
+        $('#userBirth').focus();
         return;
     }
 
     $.ajax({
         type: "POST",
         url: "/register/insertDB",
-        data: {id_give: userId, password_give: userPassword, age_give: userAge, nickname_give: userNickname},
+        data: {id_give: userId, password_give: userPassword, birth_give: userBirth, nickname_give: userNickname},
         success: function(response) {
             alert(response['msg'])
 
