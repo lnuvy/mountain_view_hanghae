@@ -51,6 +51,10 @@ def checkDup():
     print("없음")
     return jsonify({'msg': '사용 가능한 아이디 입니다.'})
 
+@app.route('/register/insertDB', methods=["POST"])
+def register():
+    return jsonify({'msg': '이제 완성해야함~'})
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

@@ -2,12 +2,6 @@
 function checkValid(check) {
     var str = check;
 
-//공백만 입력된 경우
-    var blank_pattern = /^\s+|\s+$/g;
-    if (str.replace(blank_pattern, '') == "") {
-        alert('공백만 입력되었습니다.')
-        str = null;
-    }
 
 //문자열에 공백이 있는 경우
     var blank_pattern = /[\s]/g;
@@ -23,11 +17,6 @@ function checkValid(check) {
         str = null;
     }
 
-//공백 혹은 특수문자가 있는 경우
-    if (str.search(/\W|\s/g) > -1) {
-        alert('특수문자 또는 공백이 입력되었습니다.');
-        str = null;
-    }
 
 // 아이디가 너무 짧거나 긴 경우 (4 ~ 15)
     var id_length = /^[a-zA-z0-9]{4,15}$/;
@@ -43,15 +32,10 @@ function checkValid(check) {
     }
 }
 
+
 function checkPasswordValid(check) {
     var str = check;
 
-//공백만 입력된 경우
-    var blank_pattern = /^\s+|\s+$/g;
-    if (str.replace(blank_pattern, '') == "") {
-        alert('공백만 입력되었습니다.')
-        str = null;
-    }
 
 //문자열에 공백이 있는 경우
     var blank_pattern = /[\s]/g;
@@ -59,7 +43,6 @@ function checkPasswordValid(check) {
         alert('공백이 입력되었습니다.');
         str = null;
     }
-
 
 // 비밀번호가 너무 짧거나 긴 경우 (8 ~ 20)
     var id_length = /^[a-zA-z0-9]{8,15}$/;
@@ -129,7 +112,10 @@ function checkPassword() {
 function register() {
     const userId = $('#userId').val()
     const userPassword = $('#userPassword').val()
+    const userAge = $('#userAge').val()
     const userNickname = $('#userNickname').val()
+
+    console.log(userId, userPassword, userAge, userNickname)
 
     if(userNickname === "") {
         alert("닉네임을 입력하세요!")
