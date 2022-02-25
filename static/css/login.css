@@ -18,6 +18,7 @@ body {
 }
 
 .input-box {
+    width: 100%;
     position: relative;
     margin: 10px 0;
 }
@@ -69,7 +70,12 @@ input:focus, input:not(:placeholder-shown) {
 }
 
 .register-text {
-    visibility: hidden;
     color: gray;
     font-size: 14px;
 }
+
+@keyframes id-duplicate {
+    from { left: -5px }
+    to { right: 5px }
+}
+

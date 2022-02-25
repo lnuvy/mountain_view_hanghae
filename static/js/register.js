@@ -2,134 +2,128 @@
 var id_check = false;
 var password_check = false;
 
-// 아이디 유효성 검사
+
+// 로딩 시킨 후 전역변수로 쓰고싶은데 어떻게 해야할지 잘모르겠음
+$(document).ready(() => {
+    const id_span = document.getElementById("id_notify")
+    const pw_span = document.getElementById("pw_notify")
+})
+
+console.log(id_span, pw_span)
+
+// DB 요청 전의 유효성 검사 (전처리)
 function checkValid(check) {
-    var str = check;
+
+    let str = check;
+
 //문자열에 공백이 있는 경우
-    var blank_pattern = /[\s]/g;
+    let blank_pattern = /[\s]/g;
     if (blank_pattern.test(str) == true) {
-        alert('공백이 입력되었습니다.');
+        id_span.innerText = '공백이 입력되었습니다.';
         str = null;
     }
 //특수문자가 있는 경우
-    var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+    let special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
     if (special_pattern.test(str) == true) {
-        alert('특수문자가 입력되었습니다.');
+        id_span.innerText = '특수문자가 입력되었습니다.';
         str = null;
     }
 // 아이디가 너무 짧거나 긴 경우 (4 ~ 15)
-    var id_length = /^[a-zA-z0-9]{4,15}$/;
+    let id_length = /^[a-zA-z0-9]{4,15}$/;
     if (!id_length.test(str)) {
-        alert("아이디는 영문/숫자 4~15 자리 내로 입력해야합니다.")
+        id_span.innerText = '아이디는 영문/숫자 4~15 자리 내로 입력해야합니다.';
         str = null;
     }
 
     if(str === null) {
+        id_span.style.color = 'red'
         return false;
     } else {
         return true;
     }
 }
-
-function checkPasswordValid(check) {
-    var str = check;
-//문자열에 공백이 있는 경우
-    var blank_pattern = /[\s]/g;
-    if (blank_pattern.test(str) == true) {
-        alert('공백이 입력되었습니다.');
-        str = null;
-    }
-// 비밀번호가 너무 짧거나 긴 경우 (8 ~ 20)
-    var id_length = /^[a-zA-z0-9]{8,15}$/;
-    if (!id_length.test(str)) {
-        alert("비밀번호는 문자/숫자/특수문자의 8~20 자리 내로 입력해야합니다.")
-        str = null;
-    }
-
-    if(str === null) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
 
 function checkId() {
 
     const checkId = $('#userId').val()
     const isValid = checkValid(checkId)
-    if(!isValid) return;
-
+    if(!isValid) {
+        return;
+    }
     $.ajax({
         type: 'POST',
         url: '/register/checkDup',
         data: {id_give: checkId},
         success: function (response) {
-            alert(response['msg'])
-            if(response['msg'] !== "이미 존재하는 아이디 입니다!!") {
-                // "아이디 중복확인 완료" 메세지 보이게하기
-                const showText = document.getElementById("checkDuplicate")
-                showText.style.visibility = "visible";
-
-                // 중복확인 완료시 더이상 수정하지 못하게 변경
-                $('#userId').attr("readonly", true)
-                $('#userId').css({"color": "#d3d3d3"})
-
-                // 아이디 중복확인 후 비밀번호로 포커스 이동
-                $('#userPassword').focus()
+            id_span.innerText = response['msg']
+            if(id_span.innerText === "사용 가능한 아이디 입니다.") {
+                id_span.style.color = 'black'
+                id_check = true;
+            } else {
+                id_span.style.color = 'red'
+                id_check = false;
             }
-
         }
     });
-    id_check = true;
+}
+
+
+// 비밀번호 공백/길이 체크
+function checkPasswordValid(check) {
+    var str = check;
+//문자열에 공백이 있는 경우
+    var blank_pattern = /[\s]/g;
+    if (blank_pattern.test(str) == true) {
+        pw_span.innerText = '공백이 입력되었습니다.'
+        str = null;
+    }
+// 비밀번호가 너무 짧거나 긴 경우 (8 ~ 20)
+    var id_length = /^[a-zA-z0-9]{8,15}$/;
+    if (!id_length.test(str)) {
+        pw_span.innerText = "비밀번호는 문자/숫자/특수문자의 8~20 자리 내로 입력해야합니다."
+        str = null;
+    }
+
+    if(str === null) {
+        pw_span.style.color = 'red'
+        $('#userPassword').val("")
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function checkPassword() {
-
     const firstPassword = $('#userPassword').val()
     const secondPassword = $('#checkPassword').val()
 
-    const isValid = checkPasswordValid(firstPassword)
-    if(!isValid) {
-        // 비밀번호 유효성검사에 걸러졌을때, 값을 비우고 다시 커서 옮김
-        $('#userPassword').val("")
-        $('#checkPassword').val("")
-        $('#userPassword').focus();
-        return;
-    }
-
     if(firstPassword === secondPassword) {
-        // "비밀번호가 일치합니다" 메세지 보이게하기
-        const showText = document.getElementById("checkSamePassword")
-        showText.style.visibility = "visible";
 
-        // 더이상 수정하지 못하게 readonly 속성 주기
-        $('#userPassword').attr("readonly", true)
-        $('#checkPassword').attr("readonly", true)
-        $('#userPassword').css({"color": "#d3d3d3"})
-        $('#checkPassword').css({"color": "#d3d3d3"})
+        pw_span.innerText = '비밀번호가 일치합니다.'
+        pw_span.style.color = "black";
 
-        // 나이로 포커스 옮김
+        // 다음으로 포커스 옮김
         $('#userAge').focus()
         password_check = true;
     } else {
-        // 비밀번호와 비밀번호확인이 일치하지않을때, 알럿 띄운 후 비밀번호확인 값을 비우고 다시 포커스
-        alert("일치하지 않습니다!")
+        // 비밀번호와 비밀번호확인이 일치하지않을때, 비밀번호확인 값을 비우고 다시 포커스
+        pw_span.innerText = '일치하지 않습니다!!'
+        pw_span.style.color = "red"
         $('#checkPassword').val("");
-        $('#checkPassword').focus();
+        password_check = false;
     }
 }
 
 // 회원가입 버튼 클릭
 function register() {
     const userId = $('#userId').val()
-    const userPassword = $('#userPassword').val()  // 비밀번호 해쉬 암호화 필요
+    const userPassword = $('#userPassword').val()
     const userBirth = $('#userBirth').val()
     const userNickname = $('#userNickname').val()
 
     // 아이디 중복확인이 되지않았을때
     if(!id_check) {
-        alert("아이디 중복확인을 해주세요.")
+        alert("아이디 확인을 해주세요.")
         return;
     }
 
@@ -147,7 +141,7 @@ function register() {
     }
     // 나이의 값이 비어있을때
     if (userBirth === "") {
-        alert("나이를 입력하세요!")
+        alert("생년월일을 입력하세요!")
         $('#userBirth').focus();
         return;
     }

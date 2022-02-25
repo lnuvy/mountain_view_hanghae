@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MountainView</title>
 
+<!--    Font -->
     <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Poor+Story&display=swap" rel="stylesheet">
-
 <!--    CSS -->
     <link rel="stylesheet" href="/static/css/index.css">
 <!--    Jquery -->
@@ -20,6 +20,7 @@
 <body>
 <div class="main-container flex-row">
     <div class="side-navi flex-column">
+        <a href="/" class="logo">MountainView</a>
         <div class="flex-row">
             목록 첫번째
         </div>
@@ -32,9 +33,21 @@
         <a href="login"><button class="positive-btn">로그인</button></a>
     </div>
 
-    <div class="main-contents flex-column">
-        <h1>Mountain View</h1>
-        <div id="map" style="width:700px;height:400px;"></div>
+    <div class="main-contents flex-row">
+        <div class="flex-column">
+            <div class="flex-row input-container">
+                <label for="find-mtn"></label>
+                <input id="find-mtn" type="text" name="findMtn" placeholder="산 이름을 입력하세요...">
+                <button class="positive-btn" style="width: 100px" onclick="setMountain()">검색</button>
+            </div>
+            <div id="map" style="width:700px;height:400px;"></div>
+        </div>
+
+        <div class="flex-column list-view">
+            List View
+            <div id="mtn-list" class="flex-column">
+            </div>
+        </div>
     </div>
 </div>
 

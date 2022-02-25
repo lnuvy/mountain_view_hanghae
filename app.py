@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session, make_response
 from pymongo import MongoClient
 # 비밀번호 hash 암호화
 import hashlib
@@ -6,10 +6,9 @@ import hashlib
 import jwt
 import datetime
 
-# 테스트용 시크릿 키
-SECRET_KEY = "lnuvy"
-
 app = Flask(__name__)
+# 테스트용 시크릿 키
+app.config['SECRET_KEY'] = 'lnuvy'
 
 client = MongoClient("mongodb+srv://lnuvy:1234@cluster-lnuvy.cnhmb.mongodb.net/")
 db = client.dbsparta
@@ -19,9 +18,32 @@ app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 600
 app.config['JWT_REFRESH_TOKEN_EXPIRES'] = 100000
 
 
+@app.route('/test/logout')
+def testLogout():
+    session['logged_in'] = False;
+    return redirect("/test")
+
 @app.route('/test')
 def test():
-    return render_template('testLogin.html')
+    if not session.get('logged_in'):
+        return render_template('testLogin.html')
+    else:
+        return "Logged in success!"
+
+@app.route('/testLogin', methods=['POST'])
+def testLogin():
+    if request.form['username'] and request.form['password'] == '123456':
+        session['logged_in'] = True
+
+        token = jwt.encode({
+            'user': request.form['username'],
+            'expiration': str(datetime.datetime.utcnow() + datetime.timedelta(seconds=60))
+            },
+            app.config['SECRET_KEY'])
+        return jsonify({'token': token.decode('utf-8')})
+    else:
+        return make_response('Unable to verify', 403, {'WWW-Authenticate': 'asdfasdf Failed!'})
+
 
 
 # ---------- 페이지 라우팅 ---------- #

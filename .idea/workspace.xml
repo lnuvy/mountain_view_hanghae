@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="562efae7-6bd7-48ba-a532-68519b0f5079" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/public/user_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/public/user_icon2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/testLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/testLogin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +60,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/public" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/public" />
+    </key>
   </component>
   <component name="RunManager" selected="Flask 서버.Flask (app.py)">
     <configuration name="mountain_view_hanghae" type="PythonConfigurationType" factoryName="Python">
@@ -107,7 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645587134929</updated>
-      <workItem from="1645587136844" duration="10663000" />
+      <workItem from="1645587136844" duration="49957000" />
     </task>
     <task id="LOCAL-00001" summary="회원가입 로직 완성">
       <created>1645588636977</created>
@@ -123,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645591262584</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="form 태그 버리고 jwt 로그인 진행중">
+      <created>1645600726609</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1645600726609</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,9 +163,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="회원가입 로직 완성" />
     <MESSAGE value="회원가입시 나이를 받지않고 생년월일을 받게 변경 / register 유효성검사 프론트/백 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="회원가입시 나이를 받지않고 생년월일을 받게 변경 / register 유효성검사 프론트/백 추가" />
+    <MESSAGE value="form 태그 버리고 jwt 로그인 진행중" />
+    <option name="LAST_COMMIT_MESSAGE" value="form 태그 버리고 jwt 로그인 진행중" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/mountain_view_hanghae$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1645600592327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/mountain_view_hanghae$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1645790238534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
