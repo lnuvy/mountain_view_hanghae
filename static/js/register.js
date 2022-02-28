@@ -9,11 +9,11 @@ $(document).ready(() => {
     const pw_span = document.getElementById("pw_notify")
 })
 
-console.log(id_span, pw_span)
+// console.log(id_span, pw_span)
 
 // DB 요청 전의 유효성 검사 (전처리)
 function checkValid(check) {
-
+    const id_span = document.getElementById("id_notify")
     let str = check;
 
 //문자열에 공백이 있는 경우
@@ -45,6 +45,8 @@ function checkValid(check) {
 
 function checkId() {
 
+    const id_span = document.getElementById("id_notify")
+
     const checkId = $('#userId').val()
     const isValid = checkValid(checkId)
     if(!isValid) {
@@ -70,7 +72,9 @@ function checkId() {
 
 // 비밀번호 공백/길이 체크
 function checkPasswordValid(check) {
+    const pw_span = document.getElementById("pw_notify")
     var str = check;
+
 //문자열에 공백이 있는 경우
     var blank_pattern = /[\s]/g;
     if (blank_pattern.test(str) == true) {
@@ -97,6 +101,15 @@ function checkPassword() {
     const firstPassword = $('#userPassword').val()
     const secondPassword = $('#checkPassword').val()
 
+    const pw_span = document.getElementById("pw_notify")
+
+    if (!checkPasswordValid(firstPassword)) {
+        $('#userPassword').val("")
+        $('#userPassword').focus()
+        $('#checkPassword').val("")
+        return;
+    }
+
     if(firstPassword === secondPassword) {
 
         pw_span.innerText = '비밀번호가 일치합니다.'
@@ -116,6 +129,7 @@ function checkPassword() {
 
 // 회원가입 버튼 클릭
 function register() {
+
     const userId = $('#userId').val()
     const userPassword = $('#userPassword').val()
     const userBirth = $('#userBirth').val()
