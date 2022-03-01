@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="562efae7-6bd7-48ba-a532-68519b0f5079" name="변경" comment="form 태그 버리고 jwt 로그인 진행중">
+    <list default="true" id="06ebe59f-033f-486c-8e1c-590ad61807b1" name="Changes" comment="map.js 영민이형이 한거 + 거리추가">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -43,7 +47,8 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="25UgZYCXQ9CawZvwsy5LMS8MiQj" />
+  <component name="ProjectId" id="25iWqiJoaEGYDaj52sUchskL59R" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -52,15 +57,36 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/public" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/public" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\hanghae_pre\pre_code\mountain_view_hanghae" />
     </key>
   </component>
-  <component name="RunManager" selected="Flask 서버.Flask (app.py)">
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
+    <configuration name="crowling" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="mountain_view_hanghae" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crowling.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="mountain_view_hanghae" type="PythonConfigurationType" factoryName="Python">
       <module name="mountain_view_hanghae" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,7 +116,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -100,73 +126,33 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Flask 서버.Flask (app.py)" />
+        <item itemvalue="Flask server.Flask (app.py)" />
+        <item itemvalue="Python.crowling" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="562efae7-6bd7-48ba-a532-68519b0f5079" name="변경" comment="" />
-      <created>1645587134929</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="06ebe59f-033f-486c-8e1c-590ad61807b1" name="Changes" comment="" />
+      <created>1646010580126</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1645587134929</updated>
-      <workItem from="1645587136844" duration="53174000" />
+      <updated>1646010580126</updated>
+      <workItem from="1646010585698" duration="22660000" />
+      <workItem from="1646104784927" duration="676000" />
     </task>
-    <task id="LOCAL-00001" summary="회원가입 로직 완성">
-      <created>1645588636977</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1645588636977</updated>
-    </task>
-    <task id="LOCAL-00002" summary="회원가입시 나이를 받지않고 생년월일을 받게 변경 / register 유효성검사 프론트/백 추가">
-      <created>1645591262584</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1645591262584</updated>
-    </task>
-    <task id="LOCAL-00003" summary="form 태그 버리고 jwt 로그인 진행중">
-      <created>1645600726609</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1645600726609</updated>
-    </task>
-    <task id="LOCAL-00004" summary="map.js 콜백함수 정확한 이해가 필요할듯&#10;(거리 가까운순으로 정렬하고싶은데 잘모르겠다)">
-      <created>1645790353436</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1645790353436</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="회원가입 로직 완성" />
-    <MESSAGE value="회원가입시 나이를 받지않고 생년월일을 받게 변경 / register 유효성검사 프론트/백 추가" />
-    <MESSAGE value="form 태그 버리고 jwt 로그인 진행중" />
-    <MESSAGE value="map.js 콜백함수 정확한 이해가 필요할듯&#10;(거리 가까운순으로 정렬하고싶은데 잘모르겠다)" />
-    <option name="LAST_COMMIT_MESSAGE" value="map.js 콜백함수 정확한 이해가 필요할듯&#10;(거리 가까운순으로 정렬하고싶은데 잘모르겠다)" />
+    <MESSAGE value="map.js 영민이형이 한거 + 거리추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="map.js 영민이형이 한거 + 거리추가" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/mountain_view_hanghae$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1645957152209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/mountain_view_hanghae$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1646105364005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mountain_view_hanghae$crowling.coverage" NAME="crowling Coverage Results" MODIFIED="1646046118724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

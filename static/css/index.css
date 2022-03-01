@@ -77,7 +77,6 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 300px;
     height: 100vh;
-    background-color: white;
     box-shadow: 0 0 2px gray;
     background-color: var(--dark-background);
 }
@@ -154,16 +153,12 @@ button:hover {
 
     position: absolute;
     top: 100px;
+    transition: 2s;
 }
 
 .logo:hover {
     font-size: 42px;
  }
-
-#map {
-    margin-left: 30px;
-    box-shadow: 0 0 4px 0 black;
-}
 
 .input-container {
     max-width: 600px;
@@ -183,20 +178,70 @@ button:hover {
     border-bottom: 1px solid var(--color);
 }
 
-.list-view {
-    max-width: 600px;
-    width: 100%;
-    margin: 0 30px;
-    border: 1px solid black;
+.map-wrap {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 4px 0 black;
+
+    margin-right: 60px;
 }
 
-.list-view-card {
-    margin: 15px 0;
-    border: 1px solid red;
-    cursor: pointer;
+#map {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+#my-position-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1
+}
+
+.list-container {
+    max-width: 400px;
+    width: 80%;
+    height: 60vh;
+    padding: 30px 0;
+    margin: 0 20px;
+    box-shadow: 0 0 4px gray;
+
+    overflow-y: scroll;
+}
+
+.info-window {
+    width: 150px;
+    height: 50px;
+}
+
+.list-container > .input-box {
+    max-width: 250px;
+    width: 100%;
 }
 
 /* 근처 산 일경우 CSS 로 표시를 해주면 좋을것같음 */
 .vicinity-mtn {
     background-color: lightgrey;
+}
+
+
+
+.content-card {
+    position: relative;
+    box-shadow: 0 0 4px gray;
+    max-width: 300px;
+    width: 100%;
+
+    margin: 15px 0;
+    padding: 10px 10px;
+
+    color: var(--color);
+}
+.content-icon {
+    position: absolute;
+    right: 10px;
 }

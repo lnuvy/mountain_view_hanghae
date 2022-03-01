@@ -7,14 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MountainView</title>
 
-<!--    Font -->
+    <!--    Font -->
     <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Poor+Story&display=swap" rel="stylesheet">
-<!--    CSS -->
+    <!--    CSS -->
     <link rel="stylesheet" href="/static/css/index.css">
-<!--    Jquery -->
+    <!--    Jquery -->
     <script src="/static/js/jquery-3.6.0.min.js"></script>
-<!--    Kakao Map -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eca33835a13018a6c326772b1661cc3e&libraries=services"></script>
+    <!--    Kakao Map -->
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eca33835a13018a6c326772b1661cc3e&libraries=services"></script>
 
 </head>
 <body>
@@ -30,9 +31,10 @@
         <div class="flex-row">
             목록 세번째
         </div>
-        <a href="login"><button class="positive-btn">로그인</button></a>
+        <a href="login">
+            <button class="positive-btn">로그인</button>
+        </a>
     </div>
-
     <div class="main-contents flex-row">
         <div class="flex-column">
             <div class="flex-row input-container">
@@ -40,13 +42,14 @@
                 <input id="find-mtn" type="text" name="findMtn" placeholder="산 이름을 입력하세요...">
                 <button class="positive-btn" style="width: 100px" onclick="setMountain()">검색</button>
             </div>
-            <div id="map" style="width:700px;height:400px;"></div>
+            <div class="map-wrap">
+                <div id="map"></div>
+                <button id="my-position-btn" class="positive-btn btn-40-40" onclick="moveMyPosition()">내 위치</button>
+            </div>
         </div>
 
-        <div class="flex-column list-view">
-            List View
-            <div id="mtn-list" class="flex-column">
-            </div>
+        <div id="mountain-list" class="flex-column list-container" style="justify-content: start!important; height: 70vh!important;">
+            <h1>검색 결과</h1>
         </div>
     </div>
 </div>

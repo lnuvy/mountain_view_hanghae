@@ -132,6 +132,26 @@ def userLogin():
         return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
 
+# @app.route("/getMountain", methods=["POST"])
+# def movie_get():
+#     mountain_name = request.form['name']
+#     mountain_list = list(db.tests.find({'name': mountain_name }))
+#     for m in mountain_list:
+#         m['_id'] = str(m['_id'])
+#         print(m)
+#     return jsonify({'mountains': mountain_list})
+
+# 산 정보 요청(임시-권영민)
+@app.route("/getMountain", methods=["POST"])
+def movie_get():
+    mountain_name = request.form['name']
+    mountain_address = request.form['address']
+    mountain_list = list(db.tests.find({'address': {'$regex': mountain_address }, 'name': mountain_name}, {'_id': False}))
+    # for m in mountain_list:
+    #     m['_id'] = str(m['_id'])
+    return jsonify({'mountains': mountain_list})
+
+
 
 
 if __name__ == '__main__':
